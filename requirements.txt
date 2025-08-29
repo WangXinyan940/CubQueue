@@ -1,0 +1,29 @@
+# Web框架
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# 数据库
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+
+# HTTP客户端
+requests>=2.31.0
+httpx>=0.25.0
+
+# 命令行工具
+rich>=13.0.0
+
+# 文件处理
+aiofiles>=23.0.0
+
+# 配置管理
+pydantic>=2.4.0
+pydantic-settings>=2.0.0
+
+# 日志
+loguru>=0.7.0
+
+# 工具库
+python-multipart>=0.0.6
+psutil>=5.9.0
+uuid>=1.30
