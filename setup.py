@@ -9,12 +9,12 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 setup(
     name="cubqueue",
     version="0.1.0",
-    author="CubQueue Team",
-    author_email="team@cubqueue.com",
+    author="Wang Xinyan",
+    author_email="wangxy940930@gmail.com",
     description="轻量级任务监控系统",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cubqueue/cubqueue",
+    url="https://github.com/WangXinyan940/CubQueue",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
