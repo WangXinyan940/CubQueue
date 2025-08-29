@@ -4,7 +4,7 @@
   <img src="logo.png" alt="CubQueue Logo" width="200">
 </div>
 
-CubQueue是一个Python构建的、轻量级的任务监控系统，使用命令行工具与RESTFul API交互，支持注册给定script，而后基于这些script提交任务，并管理它们产出的log、中间文件与结果文件。
+CubQueue是一个Python构建的、超轻量级的任务监控系统，使用命令行工具与RESTFul API交互，支持注册给定script，而后基于这些script提交任务，并管理它们产出的log、中间文件与结果文件。CubQueue的设计目标是用于追踪Ray集群中的任务执行情况，以及管理任务的输入输出文件。
 
 ## 特性
 
@@ -25,8 +25,8 @@ CubQueue是一个Python构建的、轻量级的任务监控系统，使用命令
 ### 从源码安装
 
 ```bash
-git clone https://github.com/cubqueue/cubqueue.git
-cd cubqueue
+git clone https://github.com/WangXinyan940/CubQueue.git
+cd CubQueue
 pip install -r requirements.txt
 pip install -e .
 ```
@@ -154,6 +154,8 @@ base_dir/
 │   │   ├── arg_file.json    # 参数文件
 │   │   └── log.txt          # 执行日志
 │   └── ...
+├── cubqueue.log             # 服务器日志
+├── cubqueue.pid             # 进程ID文件
 └── cubqueue.db              # SQLite数据库
 ```
 
@@ -232,38 +234,6 @@ CubQueue的配置通过命令行参数进行设置，主要配置项包括：
 - `--port`: 服务器监听端口
 - `--daemon`: 是否以守护进程模式运行
 
-## 开发
-
-### 开发环境设置
-
-```bash
-# 克隆仓库
-git clone https://github.com/cubqueue/cubqueue.git
-cd cubqueue
-
-# 创建虚拟环境
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# 或 venv\Scripts\activate  # Windows
-
-# 安装依赖
-pip install -r requirements.txt
-pip install -e .
-```
-
-### 运行测试
-
-```bash
-pytest tests/
-```
-
-### 代码格式化
-
-```bash
-black cubqueue/
-flake8 cubqueue/
-```
-
 ## 许可证
 
 MIT License - 详见 [LICENSE](LICENSE) 文件
@@ -275,3 +245,6 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 ## 支持
 
 如有问题，请提交Issue或联系开发团队。
+
+- 项目仓库：[https://github.com/WangXinyan940/CubQueue](https://github.com/WangXinyan940/CubQueue)
+- 邮箱：[wangxy940930@gmail.com](mailto:wangxy940930@gmail.com)
