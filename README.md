@@ -31,7 +31,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-### 使用pip安装
+### 使用pip安装[TBD]
 
 ```bash
 pip install cubqueue
@@ -225,24 +225,12 @@ print("任务执行完成")
 
 ## 配置
 
-CubQueue支持通过环境变量或配置文件进行配置：
+CubQueue的配置通过命令行参数进行设置，主要配置项包括：
 
-```bash
-# 环境变量
-export CUBQUEUE_BASE_DIR=/path/to/workspace
-export CUBQUEUE_HOST=0.0.0.0
-export CUBQUEUE_PORT=8000
-export CUBQUEUE_MAX_CONCURRENT_TASKS=10
-```
-
-或创建 `.env` 文件：
-
-```ini
-CUBQUEUE_BASE_DIR=/path/to/workspace
-CUBQUEUE_HOST=0.0.0.0
-CUBQUEUE_PORT=8000
-CUBQUEUE_MAX_CONCURRENT_TASKS=10
-```
+- `--base-dir`: 工作目录路径
+- `--host`: 服务器监听地址
+- `--port`: 服务器监听端口
+- `--daemon`: 是否以守护进程模式运行
 
 ## 开发
 

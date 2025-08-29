@@ -18,7 +18,6 @@ aiofiles>=23.0.0
 
 # 配置管理
 pydantic>=2.4.0
-pydantic-settings>=2.0.0
 
 # 日志
 loguru>=0.7.0

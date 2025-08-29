@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import List, Optional
 
 from ..client import CubQueueClient
-from ..core.config import get_config
 from ..server.daemon import DaemonManager
 
 # 版本信息
