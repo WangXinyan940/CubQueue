@@ -38,6 +38,7 @@ class Task(Base):
         String(50), nullable=False, default="pending"
     )  # pending, running, completed, failed, cancelled
     args = Column(JSON, nullable=True)  # 任务参数
+    description = Column(Text, nullable=True)  # 任务描述
     message = Column(Text, nullable=True)  # 状态消息
     created_at = Column(DateTime, default=datetime.utcnow)
     started_at = Column(DateTime, nullable=True)

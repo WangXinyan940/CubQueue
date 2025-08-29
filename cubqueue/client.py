@@ -67,6 +67,7 @@ class CubQueueClient:
         script_name: str,
         arg_file_path: str,
         large_files: Optional[List[str]] = None,
+        description: Optional[str] = None,
     ) -> str:
         """提交任务
 
@@ -74,6 +75,7 @@ class CubQueueClient:
             script_name: 脚本名称
             arg_file_path: 参数文件路径
             large_files: 大文件路径列表
+            description: 任务描述（可选）
 
         Returns:
             任务ID
@@ -87,6 +89,8 @@ class CubQueueClient:
             raise FileNotFoundError(f"参数文件不存在: {arg_file_path}")
 
         data = {"script_name": script_name}
+        if description:
+            data["description"] = description
         files = []
 
         # 添加参数文件

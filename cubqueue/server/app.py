@@ -88,6 +88,7 @@ def create_app(base_dir: str = None) -> FastAPI:
         script_name: str = Form(...),
         arg_file: UploadFile = File(...),
         files: List[UploadFile] = File(default=[]),
+        description: Optional[str] = Form(None),
         db: SessionLocal = Depends(get_db),
     ):
         """提交任务"""
@@ -135,7 +136,7 @@ def create_app(base_dir: str = None) -> FastAPI:
 
             # 创建数据库记录
             db_task = Task(
-                id=task_id, script_id=script.id, status="pending", args=json.dumps(args)
+                id=task_id, script_id=script.id, status="pending", args=json.dumps(args), description=description
             )
             db.add(db_task)
             db.commit()
@@ -166,6 +167,7 @@ def create_app(base_dir: str = None) -> FastAPI:
                 id=task.id,
                 script_name=task.script.name,
                 status=task.status,
+                description=task.description,
                 created_at=task.created_at,
             )
             for task in tasks

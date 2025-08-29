@@ -75,8 +75,9 @@ def cmd_list(args):
         if tasks:
             print("任务列表:")
             for task in tasks:
+                desc_info = f" - {task['description']}" if task.get('description') else ""
                 print(
-                    f"  - {task['id']}: {task['script_name']} ({task['status']})"
+                    f"  - {task['id']}: {task['script_name']} ({task['status']}){desc_info}"
                 )
         else:
             print("暂无任务")
@@ -91,7 +92,8 @@ def cmd_submit(args):
         client = CubQueueClient(f"http://{args.host}:{args.port}")
         print(f"提交任务: {args.script}")
         large_files = args.large_files if args.large_files else []
-        task_id = client.submit_task(args.script, args.arg_file, large_files)
+        description = getattr(args, 'desc', None)
+        task_id = client.submit_task(args.script, args.arg_file, large_files, description)
         print(f"任务提交成功，任务ID: {task_id}")
     except Exception as e:
         print(f"提交失败: {e}", file=sys.stderr)
@@ -199,6 +201,7 @@ def create_parser():
     submit_parser.add_argument('--script', required=True, help='脚本名称')
     submit_parser.add_argument('--arg-file', required=True, help='参数文件路径')
     submit_parser.add_argument('--large-files', action='append', help='大文件路径（可多次使用）')
+    submit_parser.add_argument('--desc', help='任务描述（可选）')
     submit_parser.add_argument('--host', default='127.0.0.1', help='服务器主机地址')
     submit_parser.add_argument('--port', type=int, default=8000, help='服务器端口')
     submit_parser.set_defaults(func=cmd_submit)

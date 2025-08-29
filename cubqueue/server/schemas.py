@@ -23,6 +23,7 @@ class TaskResponse(BaseModel):
     id: str
     script_name: str
     status: str
+    description: Optional[str] = None
     created_at: datetime
 
     class Config:
